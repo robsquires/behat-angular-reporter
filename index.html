@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.5/angular.js"></script>
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    </head>
+    <body>
+    <div ng-init=' features =  [
+        {
+          "title": "A feature",
+          "desc": null,
+          "result": "passed",
+          "scenarios": [
+            {
+              "title": "A scenario",
+              "isOutline": false,
+              "result": "passed",
+              "steps": [
+                {
+                  "text": "some precondition",
+                  "type": "Given",
+                  "isBackground": false,
+                  "result": "passed"
+                },
+                {
+                  "text": "some action",
+                  "type": "When",
+                  "isBackground": false,
+                  "result": "passed"
+                },
+                {
+                  "text": "some outcome",
+                  "type": "Then",
+                  "isBackground": false,
+                  "result": "failed"
+                }
+              ]
+            }
+          ]
+        }
+        ]'></div>
+    Search: <input ng-model="searchText">
+    <ul>
+        <li>Passed</li>
+        <li>Failed</li>
+        <li>Pending</li>
+    </ul>
+    <ul>
+        <li ng-repeat="feature in features | filter:searchText">
+            <p>{{feature.title}}</p>
+            <ul>
+                <li ng-repeat="scenario in feature.scenarios | filter:searchText">
+                    <p>{{scenario.title}}</p>
+                    <ul>
+                        <li ng-repeat="step in scenario.steps | filter:searchText">
+                            <p>{{step.type}} - {{step.text}}</p>
+                            
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    </body>
+</html>
