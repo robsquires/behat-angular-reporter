@@ -1,0 +1,16 @@
+{
+  "name": "behat-enhacned-reporter",
+  "version": "0.0.1",
+ 
+  "contributors": [ 
+    {
+      "name": "Rob Squires",
+      "email": "rob.squires@gmail.com"
+    } 
+  ],
+ 
+  "dependencies" : {
+    "webdriverjs"   :  "https://github.com/christian-bromann/webdriverjs/tarball/master",
+    "cucumber" :  "*"
+  }
+}
