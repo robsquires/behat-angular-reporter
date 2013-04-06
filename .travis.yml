@@ -1,3 +1,5 @@
 language: node_js
- node_js:
-   - "0.8"
+ php:
+   - 5.3
+
+before_script: ./init_build.sh
